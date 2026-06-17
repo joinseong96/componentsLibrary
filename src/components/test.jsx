@@ -4,7 +4,6 @@ export default function Button({
 	size = "md",
 	disabled = false,
 	onClick,
-	// props 구조분해
 }) {
 	const base =
 		"inline-flex items-center justify-center font-semibold rounded transition-colors cursor-pointer";
@@ -23,12 +22,4 @@ export default function Button({
 	};
 
 	const disabledStyle = "opacity-50 cursor-not-allowed";
-
-	const className = `${base} ${variants[variant]} ${sizes[size]} ${disabled ? disabledStyle : ""}`;
-
-	return (
-		<button className={className} disabled={disabled} onClick={onClick}>
-			{children}
-		</button>
-	);
 }
