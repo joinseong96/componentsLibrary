@@ -6,7 +6,7 @@ export default function Button({
 	onClick,
 }) {
 	const base =
-		"inline-flex items-center justify-center font-semibold rounded transition-colors cursor-pointer";
+		"inline-flex items-center jusity-center font-semibold rounded transition-colors cursor-pointer";
 
 	const variants = {
 		primary: "bg-blue-500 text-white hover:bg-blue-600",
@@ -22,4 +22,12 @@ export default function Button({
 	};
 
 	const disabledStyle = "opacity-50 cursor-not-allowed";
+
+	const className = `${base} ${variants[variant]} ${sizes[size]} ${disabled ? disabledStyle : ""}`;
+
+	return (
+		<button className={className} disabled={disabled} onClick={onClick}>
+			{children}
+		</button>
+	);
 }
