@@ -38,6 +38,12 @@ export default function App() {
 				value={name}
 				onChange={(e) => setName(e.target.value)}
 			/>
+			<Input
+				label="이메일"
+				placeholder="이메일을 입력하세요."
+				error="올바른 이메일 형식이 아니에요"
+			/>
+			<Input label="비활성 상태" placeholder="입력 불가" disabled />
 
 			<div className="flex gap-3">
 				<Button onClick={() => setShowToast(true)}>토스트 띄우기</Button>
