@@ -1,33 +1,42 @@
-export default function Button({
-	children,
-	variant = "primary",
-	size = "md",
-	disabled = false,
-	onClick,
+import { useEffect } from "react";
+
+export default function Toast({
+	message,
+	type = "info",
+	isVisible,
+	onClose,
+	duration = 3000,
 }) {
-	const base =
-		"inline-flex items-center jusity-center font-semibold rounded transition-colors cursor-pointer";
+	useEffect(() => {
+		if (!isVisible) return;
 
-	const variants = {
-		primary: "bg-blue-500 text-white hover:bg-blue-600",
-		secondary: "bg-gray-200 text-gray-800 hover:bg-gray-300",
-		outline: "border border-blue-500 text-blue-500 hover:bg-blue-50",
-		danger: "bg-red-500 text-white hover:bg-red-600",
+		const timer = setTimeout(() => {
+			onClose();
+		}, duration);
+
+		return () => clearTimeout(timer);
+	}, [isVisible, duration, onClose]);
+
+	if (!isVisible) return null;
+
+	const types = {
+		info: "bg-blue-500",
+		success: "bg-green-500",
+		warning: "bg-yellow-500",
+		error: "bg-red-500",
 	};
-
-	const sizes = {
-		sm: "text-sm px-3 py-1.5",
-		md: "text-base px-4 py-2",
-		lg: "text-lg px-6 py-3",
-	};
-
-	const disabledStyle = "opacity-50 cursor-not-allowed";
-
-	const className = `${base} ${variants[variant]} ${sizes[size]} ${disabled ? disabledStyle : ""}`;
 
 	return (
-		<button className={className} disabled={disabled} onClick={onClick}>
-			{children}
-		</button>
+		<div
+			className={`fixed bottom-6 right-6 ${types[type]} text-white px-4 py-3 rounded shadow-lg flex items-center gap-3 animate-fade-in`}
+		>
+			<span className="text-sm">{message}</span>
+			<button
+				onClick={onClose}
+				className="text-white/80 hover:text-white text-sm font-bold cursor-pointer"
+			>
+				✕
+			</button>
+		</div>
 	);
 }
