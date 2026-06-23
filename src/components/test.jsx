@@ -1,42 +1,24 @@
-import { useEffect } from "react";
+import { useState } from "react";
 
-export default function Toast({
-	message,
-	type = "info",
-	isVisible,
-	onClose,
-	duration = 3000,
-}) {
-	useEffect(() => {
-		if (!isVisible) return;
-
-		const timer = setTimeout(() => {
-			onClose();
-		}, duration);
-
-		return () => clearTimeout(timer);
-	}, [isVisible, duration, onClose]);
-
-	if (!isVisible) return null;
-
-	const types = {
-		info: "bg-blue-500",
-		success: "bg-green-500",
-		warning: "bg-yellow-500",
-		error: "bg-red-500",
-	};
+export default function Tab({ tabs }) {
+	const [activeIndex, setActiveIndex] = useState(0);
 
 	return (
-		<div
-			className={`fixed bottom-6 right-6 ${types[type]} text-white px-4 py-3 rounded shadow-lg flex items-center gap-3 animate-fade-in`}
-		>
-			<span className="text-sm">{message}</span>
-			<button
-				onClick={onClose}
-				className="text-white/80 hover:text-white text-sm font-bold cursor-pointer"
-			>
-				✕
-			</button>
+		<div className="w-full max-w-md">
+			<div className="flex border-b border-gray-200">
+				{tabs.map((tab, index) => (
+					<button
+						key={tab.label}
+						onClick={() => setActiveIndex(index)}
+						className={`px-4 py-2 text-sm font-medium cursor-pointer transition-colors ${activeIndex === index ? "text-blue-500 border-b-2 border-blue-500" : "text-gray-500 hover:text-gray-700"}`}
+					>
+						{tab.label}
+					</button>
+				))}
+			</div>
+			<div className="p-4 text-sm text-gray-600">
+				{tabs[activeIndex].content}
+			</div>
 		</div>
 	);
 }
