@@ -1,24 +1,30 @@
-import { useState } from "react";
+const base =
+	"inline-flex items-center jusity-center font-semibold rounded-full";
 
-export default function Tab({ tabs }) {
-	const [activeIndex, setActiveIndex] = useState(0);
+const variants = {
+	primary: "bg_blue-100 text-blue-700",
+	secondary: "bg-gray-100 text-gray-700",
+	succuess: "bg-green-100 text-green-700",
+};
+
+const sizes = {
+	sm: "text-xs px-2 py-0.5",
+};
+
+const disabledStyle = "opacity-50 cursor-not-allowed";
+
+export default function Button({
+	children,
+	variant = "primary",
+	size = "sm",
+	disabled = false,
+	onClick,
+}) {
+	const className = `${base} ${variants[variant]} ${sizes[size]} ${disabled ? disabledStyle : ""}`;
 
 	return (
-		<div className="w-full max-w-md">
-			<div className="flex border-b border-gray-200">
-				{tabs.map((tab, index) => (
-					<button
-						key={tab.label}
-						onClick={() => setActiveIndex(index)}
-						className={`px-4 py-2 text-sm font-medium cursor-pointer transition-colors ${activeIndex === index ? "text-blue-500 border-b-2 border-blue-500" : "text-gray-500 hover:text-gray-700"}`}
-					>
-						{tab.label}
-					</button>
-				))}
-			</div>
-			<div className="p-4 text-sm text-gray-600">
-				{tabs[activeIndex].content}
-			</div>
-		</div>
+		<button className={className} onClick={onClick}>
+			{children}
+		</button>
 	);
 }
