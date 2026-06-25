@@ -36,6 +36,14 @@ export default function InputPage() {
 				<h2 className="text-sm font-semibold text-gray-600">Disabled 상태</h2>
 				<Input label="비활성 상태" placeholder="입력 불가" disabled />
 			</section>
+
+			<section className="flex flex-col gap-4">
+				<Input
+					type="password"
+					label="비밀번호"
+					placeholder="비밀번호를 입력하세요"
+				/>
+			</section>
 		</div>
 	);
 }
