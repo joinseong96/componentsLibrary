@@ -8,6 +8,7 @@ import InputPage from "./pages/InputPage";
 import ToastPage from "./pages/ToastPage";
 import ModalPage from "./pages/ModalPage";
 import TabPage from "./pages/TabPage";
+import DropdownPage from "./pages/DropdownPage";
 
 export default function App() {
 	return (
@@ -23,6 +24,7 @@ export default function App() {
 						<Route path="/toast" element={<ToastPage />} />
 						<Route path="/modal" element={<ModalPage />} />
 						<Route path="/tab" element={<TabPage />} />
+						<Route path="/dropdown" element={<DropdownPage />} />
 					</Routes>
 				</main>
 			</div>

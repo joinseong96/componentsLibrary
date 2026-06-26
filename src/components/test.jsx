@@ -1,30 +1,49 @@
-const base =
-	"inline-flex items-center jusity-center font-semibold rounded-full";
+import { useState, useRef, useEffect } from "react";
 
-const variants = {
-	primary: "bg_blue-100 text-blue-700",
-	secondary: "bg-gray-100 text-gray-700",
-	succuess: "bg-green-100 text-green-700",
-};
-
-const sizes = {
-	sm: "text-xs px-2 py-0.5",
-};
-
-const disabledStyle = "opacity-50 cursor-not-allowed";
-
-export default function Button({
-	children,
-	variant = "primary",
-	size = "sm",
-	disabled = false,
-	onClick,
+export default function Dropdown({
+	placeholder = "선택하세요.",
+	options = [],
+	onSelect,
 }) {
-	const className = `${base} ${variants[variant]} ${sizes[size]} ${disabled ? disabledStyle : ""}`;
+	const [isOpen, setIsOpen] = useState(false);
+	const [selected, setSelected] = useState(null);
+	const dropdownRef = useRef(null);
+
+	useEffect(() => {
+		const handleClickOutside = (e) => {
+			if (dropdownRef.current && !dropdownRef.current.contains(e.target)) {
+				setIsOpen(false);
+			}
+		};
+
+		document.addEventListener("mousedown", handleClickOutside);
+
+		return () => {
+			document.removeEventListener("mousedown", handleClickOutside);
+		};
+	}, []);
+
+	const handleSelect = (option) => {
+		setSelected(option);
+		setIsOpen(false);
+		onSelect?.(option);
+	};
 
 	return (
-		<button className={className} onClick={onClick}>
-			{children}
-		</button>
+		<div>
+			<button onClick={() => setIsOpen((prev) => !prev)}>
+				{selected ? selected.label : placeholder}
+			</button>
+
+			{isOpen && (
+				<ul>
+					{options.map((option) => (
+						<li key={option.value} onClick={() => handleSelect(option)}>
+							{option.label}
+						</li>
+					))}
+				</ul>
+			)}
+		</div>
 	);
 }
