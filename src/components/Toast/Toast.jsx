@@ -3,21 +3,16 @@ import { useEffect } from "react";
 export default function Toast({
 	message,
 	type = "info",
-	isVisible,
-	onClose,
 	duration = 3000,
+	onClose,
 }) {
 	useEffect(() => {
-		if (!isVisible) return;
-
 		const timer = setTimeout(() => {
 			onClose();
 		}, duration);
 
 		return () => clearTimeout(timer);
-	}, [isVisible, duration, onClose]);
-
-	if (!isVisible) return null;
+	}, [duration, onClose]);
 
 	const types = {
 		info: "bg-blue-500",
@@ -25,10 +20,9 @@ export default function Toast({
 		warning: "bg-yellow-500",
 		error: "bg-red-500",
 	};
-
 	return (
 		<div
-			className={`fixed bottom-6 right-6 ${types[type]} text-white px-4 py-3 rounded shadow-lg flex items-center gap-3 animate-fade-in`}
+			className={`${types[type]} text-white px-4 py-3 rounded shadow-lg flex items-center gap-3`}
 		>
 			<span className="text-sm">{message}</span>
 			<button

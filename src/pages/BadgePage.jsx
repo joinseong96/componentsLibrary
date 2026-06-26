@@ -29,6 +29,13 @@ export default function BadgePage() {
 					<Badge size="lg">Large</Badge>
 				</div>
 			</section>
+
+			<section>
+				<h2 className="text-sm font-semibold text-gray-600 mb-3">Loading</h2>
+				<div className="flex gap-3">
+					<Button loading>Loading</Button>
+				</div>
+			</section>
 		</div>
 	);
 }
