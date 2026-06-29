@@ -14,7 +14,7 @@ import CardPage from "./pages/CardPage";
 export default function App() {
 	return (
 		<ToastProvider>
-			<div className="flex">
+			<div className="flex min-h-screen bg-white dark:bg-gray-950 text-gray-900 dark:text-gray-100">
 				<Sidebar />
 				<main className="flex-1">
 					<Routes>

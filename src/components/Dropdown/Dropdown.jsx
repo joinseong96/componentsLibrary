@@ -36,7 +36,7 @@ export default function Dropdown({
 		<div ref={dropdownRef} className="relative w-48">
 			<button
 				onClick={() => setIsOpen((prev) => !prev)}
-				className="w-full flex items-center justify-between px-4 py-2 border border-gray-300 rounded text-sm bg-white hover:bg-gray-50 cursor-pointer"
+				className="w-full flex items-center justify-between px-4 py-2 border border-gray-300 rounded text-sm bg-white hover:bg-gray-50 cursor-pointer dark:text-gray-800"
 			>
 				<span>{selected ? selected.label : placeholder}</span>
 				<span className={`transition-transform ${isOpen ? "rotate-180" : ""}`}>
@@ -50,7 +50,7 @@ export default function Dropdown({
 						<li
 							key={option.value}
 							onClick={() => handleSelect(option)}
-							className="px-4 py-2 text-sm hover:bg-gray-100 cursor-pointer"
+							className="px-4 py-2 text-sm hover:bg-gray-100 cursor-pointer dark:text-gray-800"
 						>
 							{option.label}
 						</li>

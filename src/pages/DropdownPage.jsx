@@ -10,8 +10,10 @@ export default function DropdownPage() {
 	return (
 		<div className="p-10 flex flex-col gap-10 max-w-2xl">
 			<div>
-				<h1 className="text-2xl font-bold text-gray-800 mb-2">Dropdown</h1>
-				<p className="text-gray-500 text-sm">
+				<h1 className="text-2xl font-bold text-gray-800 dark:text-gray-300 mb-2">
+					Dropdown
+				</h1>
+				<p className="text-gray-500 dark:text-gray-100 text-sm">
 					클릭하면 옵션이 펼쳐지고, 바깥을 클릭하면 닫히는 컴포넌트입니다.
 				</p>
 			</div>

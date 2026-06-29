@@ -7,17 +7,21 @@ export default function Card({ title, description, image, children, footer }) {
 
 			<div className="p-5">
 				{title && (
-					<h3 className="text-lg font-bold text-gray-800 mb-1">{title}</h3>
+					<h3 className="text-lg font-bold text-gray-800 dark:text-gray-300 mb-1">
+						{title}
+					</h3>
 				)}
 				{description && (
-					<p className="text-sm text-gray-500 mb-3">{description}</p>
+					<p className="text-sm text-gray-500 dark:text-gray-100 mb-3">
+						{description}
+					</p>
 				)}
 
 				{children}
 			</div>
 
 			{footer && (
-				<div className="px-5 border-t border-gray-100 bg-gray-50">{footer}</div>
+				<div className="px-5 py-3 border-t border-gray-100">{footer}</div>
 			)}
 		</div>
 	);

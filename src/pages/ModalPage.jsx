@@ -8,8 +8,10 @@ export default function ModalPage() {
 	return (
 		<div className="p-10 flex flex-col gap-10 max-w-2xl">
 			<div>
-				<h1 className="text-2xl font-bold text-gray-800 mb-2">Modal</h1>
-				<p className="text-gray-500 text-sm">
+				<h1 className="text-2xl font-bold text-gray-800 dark:text-gray-300 mb-2">
+					Modal
+				</h1>
+				<p className="text-gray-500 dark:text-gray-100 text-sm">
 					배경 클릭 또는 닫기 버튼으로 닫을 수 있는 팝업창입니다.
 				</p>
 			</div>

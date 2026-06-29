@@ -2,9 +2,9 @@ const base =
 	"inline-flex items-center justify-center font-semibold rounded transition-colors cursor-pointer";
 
 const variants = {
-	primary: "bg-blue-500 text-white hover:bg-blue-600",
+	primary: "bg-accent-500 text-white hover:bg-accent-600",
 	secondary: "bg-gray-200 text-gray-800 hover:bg-gray-300",
-	outline: "border border-blue-500 text-blue-500 hover:bg-blue-50",
+	outline: "border border-accent-500 text-accent-600 hover:bg-accent-50",
 	danger: "bg-red-500 text-white hover:bg-red-600",
 };
 
