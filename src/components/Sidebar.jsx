@@ -9,6 +9,7 @@ const menuItems = [
 	{ path: "/modal", label: "Modal" },
 	{ path: "/tab", label: "Tab" },
 	{ path: "/dropdown", label: "Dropdown" },
+	{ path: "/card", label: "Card" },
 ];
 
 export default function Sidebar() {
