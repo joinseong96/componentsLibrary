@@ -14,7 +14,7 @@ export default function ThemeToggle() {
 	return (
 		<button
 			onClick={() => setIsDark((prev) => !prev)}
-			className="px-3 py-2 rounded text-sm font-medium text-gray-600 dark:text-gray-300 hover:bg-gray-100 dark:hover:bg-gray-800 transition-colors"
+			className="w-full px-3 py-2 rounded text-xl bg-accent-700 font-medium text-gray-100 dark:text-gray-300 hover:bg-gray-800 dark:hover:bg-gray-800 transition-colors cursor-pointer"
 		>
 			{isDark ? "Dark" : "Light"}
 		</button>

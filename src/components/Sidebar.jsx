@@ -15,8 +15,8 @@ const menuItems = [
 
 export default function Sidebar() {
 	return (
-		<nav className="w-48 h-screen border-r border-gray-200 dark:border-gray-800 p-4 flex flex-col gap-1 bg-white dark:bg-gray-900">
-			<h2 className="text-sm font-bold text-gray-400 dark:text-gray-100 mb-3 px-2">
+		<nav className="w60 h-screen border-r border-gray-200 dark:border-gray-800 p-10 flex flex-col gap-5 bg-white dark:bg-gray-900">
+			<h2 className="text-xl font-bold text-gray-800 dark:text-gray-100 mb-3 px-2">
 				COMPONENTS
 			</h2>
 			{menuItems.map((item) => (
@@ -24,9 +24,9 @@ export default function Sidebar() {
 					key={item.path}
 					to={item.path}
 					className={({ isActive }) =>
-						`px-3 py-2 rounded text-sm font-medium transition-colors ${
+						`px-3 py-2 rounded text-xl font-medium transition-colors ${
 							isActive
-								? "bg-accent-50 text-accent-600 dark:bg-accent-900 dark:text-accent-300"
+								? "bg-accent-50 text-accent-600 dark:bg-accent-500 dark:text-accent-100"
 								: "text-gray-600 dark:text-gray-300 hover:bg-gray-100 dark:hover:bg-gray-800"
 						}`
 					}
@@ -35,7 +35,7 @@ export default function Sidebar() {
 				</NavLink>
 			))}
 
-			<div className="mt-auto">
+			<div className="mt-auto pt-4 border-t border-gray-100 dark:border-gray-800">
 				<ThemeToggle />
 			</div>
 		</nav>
