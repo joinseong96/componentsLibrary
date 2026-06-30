@@ -29,7 +29,7 @@ export default function Button({
 }) {
 	const isDisabled = disabled || loading;
 
-	const className = `${base} ${variants[variant]} ${sizes[size]} ${isDisabled ? disabledStyle : ""}`;
+	const className = `flex gap-2 ${base} ${variants[variant]} ${sizes[size]} ${isDisabled ? disabledStyle : ""}`;
 
 	return (
 		<button className={className} disabled={isDisabled} onClick={onClick}>
